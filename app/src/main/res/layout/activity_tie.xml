@@ -2,45 +2,44 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050055"
-    android:padding="20dp"
-    tools:context=".MainActivity">
+    android:background="#18077C"
+    tools:context=".Tie">
 
     <TextView
-        android:id="@+id/speakText"
-        android:layout_width="373dp"
-        android:layout_height="76dp"
+        android:id="@+id/tie"
+        android:layout_width="378dp"
+        android:layout_height="78dp"
         android:autoSizeTextType="uniform"
-        android:fontFamily="@font/cormorant_upright_medium"
-        android:text="Press mic to input voice..."
+        android:fontFamily="@font/aclonica"
+        android:text="IT'S A TIE!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.28"
-        tools:text="Press mic to input voice..." />
+        app:layout_constraintVertical_bias="0.335" />
 
-    <ImageButton
-        android:id="@+id/speakButton"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_mic"
+    <Button
+        android:id="@+id/playOnceMore"
+        android:layout_width="205dp"
+        android:layout_height="54dp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/cormorant_upright_medium"
+        android:text="Play Again?"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/exit"
-        android:layout_width="157dp"
-        android:layout_height="43dp"
+        android:id="@+id/exitApplication"
+        android:layout_width="134dp"
+        android:layout_height="51dp"
+        android:autoSizeTextType="uniform"
         android:fontFamily="@font/cormorant_upright_medium"
         android:text="Exit"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -48,6 +47,5 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
-
+        app:layout_constraintVertical_bias="0.607" />
 </androidx.constraintlayout.widget.ConstraintLayout>

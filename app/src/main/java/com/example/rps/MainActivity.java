@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,10 +30,22 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.speakText);
         speakButton = findViewById(R.id.speakButton);
 
+        configureExitAppButton();
+
         speakButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 speak();
+            }
+        });
+    }
+
+    public  void configureExitAppButton() {
+        Button exitAppButton = findViewById(R.id.exit);
+        exitAppButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -75,8 +88,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void rPSTester() {
 
-        //asking user for choice
-        System.out.println("Please choose rock, paper, or scissors");
         String userChoice = userChooses;
 
         //determining if user input is valid or not and playing game based if input is valid
@@ -87,6 +98,6 @@ public class MainActivity extends AppCompatActivity {
             newGame.playRPS(userChoice);
         }
         else
-            System.out.println("INVALID DATA");
+            Toast.makeText(this, "INVALID DATA. PLEASE CHOOSE <ROCK, PAPER, OR SCISSORS>", Toast.LENGTH_SHORT).show();;
     }
 }
