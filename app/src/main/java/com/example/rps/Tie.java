@@ -14,7 +14,6 @@ public class Tie extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tie);
         configurePlayAgain();
-        configureExit();
     }
 
     public void configurePlayAgain() {
@@ -23,16 +22,6 @@ public class Tie extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Tie.this, MainActivity.class));
-            }
-        });
-    }
-
-    public void configureExit() {
-        Button exitAppButton = findViewById(R.id.exitApplication);
-        exitAppButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
             }
         });
     }

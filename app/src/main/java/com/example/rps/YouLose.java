@@ -14,7 +14,6 @@ public class YouLose extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_lose);
         configurePlayAgain();
-        configureExit();
     }
 
     public void configurePlayAgain() {
@@ -27,13 +26,4 @@ public class YouLose extends AppCompatActivity {
         });
     }
 
-    public void configureExit() {
-        Button exitAppButton = findViewById(R.id.exitbutton);
-        exitAppButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
 }

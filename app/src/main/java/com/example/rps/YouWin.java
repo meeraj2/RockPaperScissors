@@ -15,7 +15,6 @@ public class YouWin extends AppCompatActivity {
         setContentView(R.layout.activity_you_win);
 
         configurePlayAgain();
-        configureExit();
     }
 
     public void configurePlayAgain() {
@@ -24,16 +23,6 @@ public class YouWin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(YouWin.this, MainActivity.class));
-            }
-        });
-    }
-
-    public void configureExit() {
-        Button exitAppButton = findViewById(R.id.exitApp);
-        exitAppButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
             }
         });
     }

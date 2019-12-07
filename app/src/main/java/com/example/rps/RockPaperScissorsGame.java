@@ -2,16 +2,28 @@ package com.example.rps;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 public class RockPaperScissorsGame extends AppCompatActivity {
 
+    private RockPaperScissorsGame activity;
+
+    private ImageView usersChoosing;
+    private ImageView compChoosing;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rock_paper_scissors_game);
+        usersChoosing= findViewById(R.id.userOption);
+        compChoosing = findViewById(R.id.compOption);
+        playRPS(getIntent().getStringExtra("userChoice"));
     }
+
     public void playRPS(String userChoice) {
 
         String compPicks;
@@ -23,13 +35,18 @@ public class RockPaperScissorsGame extends AppCompatActivity {
 
         if(computerChoice <= 1.0/3.0) {
             compPicks = "rock";
+            compChoosing.setImageResource(R.drawable.rock);
         }
         else if (computerChoice > 1.0/3.0 && computerChoice <= 2.0/3.0) {
             compPicks = "paper";
+            compChoosing.setImageResource(R.drawable.paper);
         }
         else {
             compPicks = "scissors";
+            compChoosing.setImageResource(R.drawable.scissors);
         }
+
+        
 
         /**
          creating a method to return the winner of the round
@@ -37,34 +54,46 @@ public class RockPaperScissorsGame extends AppCompatActivity {
          */
         if(userChoice.equalsIgnoreCase("rock"))
         {
+            usersChoosing.setImageResource(R.drawable.rock);
             if (compPicks.equals("paper")) {
                 startActivity(new Intent(RockPaperScissorsGame.this, YouLose.class));
+                Toast.makeText(this, "Computer chose PAPER", Toast.LENGTH_SHORT).show();
             } else if (compPicks.equals("scissors")) {
-                startActivity(new Intent(RockPaperScissorsGame.this, YouWin.class));
+                startActivity(new Intent(this, YouWin.class));
+                Toast.makeText(this, "Computer chose SCISSORS", Toast.LENGTH_SHORT).show();
             } else {
-                startActivity(new Intent(RockPaperScissorsGame.this, Tie.class));
+                startActivity(new Intent(this, Tie.class));
+                Toast.makeText(this, "Computer chose ROCK", Toast.LENGTH_SHORT).show();
             }
         }
 
         else if (userChoice.equalsIgnoreCase("paper"))
         {
+            usersChoosing.setImageResource(R.drawable.paper);
             if (compPicks.equals("rock")) {
-                startActivity(new Intent(RockPaperScissorsGame.this, YouWin.class));
+                startActivity(new Intent(this, YouWin.class));
+                Toast.makeText(this, "Computer chose ROCK", Toast.LENGTH_SHORT).show();
             } else if (compPicks.equals("scissors")) {
-                startActivity(new Intent(RockPaperScissorsGame.this, YouLose.class));
+                startActivity(new Intent(this, YouLose.class));
+                Toast.makeText(this, "Computer chose SCISSORS", Toast.LENGTH_SHORT).show();
             } else {
-                startActivity(new Intent(RockPaperScissorsGame.this, Tie.class));
+                startActivity(new Intent(this, Tie.class));
+                Toast.makeText(this, "Computer chose PAPER", Toast.LENGTH_SHORT).show();
             }
         }
 
         else if (userChoice.equalsIgnoreCase("scissors"))
         {
+            usersChoosing.setImageResource(R.drawable.scissors);
             if (compPicks.equals("rock")) {
-                startActivity(new Intent(RockPaperScissorsGame.this, YouLose.class));
+                startActivity(new Intent(this, YouLose.class));
+                Toast.makeText(this, "Computer chose ROCK", Toast.LENGTH_SHORT).show();
             } else if (compPicks.equals("paper")) {
-                startActivity(new Intent(RockPaperScissorsGame.this, YouWin.class));
+                startActivity(new Intent(this, YouWin.class));
+                Toast.makeText(this, "Computer chose PAPER", Toast.LENGTH_SHORT).show();
             } else {
-                startActivity(new Intent(RockPaperScissorsGame.this, Tie.class));
+                startActivity(new Intent(this, Tie.class));
+                Toast.makeText(this, "Computer chose SCISSORS", Toast.LENGTH_SHORT).show();
             }
         }
 
