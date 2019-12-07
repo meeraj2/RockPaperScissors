@@ -25,15 +25,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mySong = MediaPlayer.create(MainActivity.this, R.raw.music);
+        int resID = getResources().getIdentifier("music", "raw", getPackageName());
+        mySong = MediaPlayer.create(this, resID);
+        mySong.start();
 
         configureRockButton();
         configurePaperButton();
         configureScissorsButton();
-    }
-
-    public void playIT(View v) {
-        mySong.start();
     }
 
     @Override
