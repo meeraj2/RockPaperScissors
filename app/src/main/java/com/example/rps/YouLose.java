@@ -14,6 +14,7 @@ public class YouLose extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_lose);
         configurePlayAgain();
+        configureSeeResults();
     }
 
     public void configurePlayAgain() {
@@ -22,6 +23,15 @@ public class YouLose extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(YouLose.this, MainActivity.class));
+            }
+        });
+    }
+    public void configureSeeResults() {
+        Button seeResults = findViewById(R.id.seeResults);
+        seeResults.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

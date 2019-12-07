@@ -15,6 +15,7 @@ public class YouWin extends AppCompatActivity {
         setContentView(R.layout.activity_you_win);
 
         configurePlayAgain();
+        configureSeeOutcomes();
     }
 
     public void configurePlayAgain() {
@@ -23,6 +24,15 @@ public class YouWin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(YouWin.this, MainActivity.class));
+            }
+        });
+    }
+    public void configureSeeOutcomes() {
+        Button seeResults = findViewById(R.id.seeOutcomes);
+        seeResults.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

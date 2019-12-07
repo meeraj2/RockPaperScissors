@@ -6,12 +6,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 public class RockPaperScissorsGame extends AppCompatActivity {
-
-    private RockPaperScissorsGame activity;
 
     private ImageView usersChoosing;
     private ImageView compChoosing;
@@ -19,9 +20,21 @@ public class RockPaperScissorsGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rock_paper_scissors_game);
+
+        configuretoResultButton();
         usersChoosing= findViewById(R.id.userOption);
         compChoosing = findViewById(R.id.compOption);
         playRPS(getIntent().getStringExtra("userChoice"));
+    }
+
+    public void configuretoResultButton() {
+        ImageButton toResult = findViewById(R.id.toResult);
+        toResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void playRPS(String userChoice) {
@@ -46,7 +59,7 @@ public class RockPaperScissorsGame extends AppCompatActivity {
             compChoosing.setImageResource(R.drawable.scissors);
         }
 
-        
+
 
         /**
          creating a method to return the winner of the round

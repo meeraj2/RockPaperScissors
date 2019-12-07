@@ -14,6 +14,7 @@ public class Tie extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tie);
         configurePlayAgain();
+        configureSeeResultButton();
     }
 
     public void configurePlayAgain() {
@@ -22,6 +23,15 @@ public class Tie extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Tie.this, MainActivity.class));
+            }
+        });
+    }
+    public void configureSeeResultButton() {
+        Button seeResults = findViewById(R.id.seeResult);
+        seeResults.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

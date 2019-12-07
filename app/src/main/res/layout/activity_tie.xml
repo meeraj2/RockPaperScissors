@@ -35,4 +35,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/seeResult"
+        android:layout_width="158dp"
+        android:layout_height="46dp"
+        android:fontFamily="@font/cormorant_upright_medium"
+        android:text="See Results"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.604" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
