@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    MediaPlayer mySong;
     private String userChooses = "";
 
     @Override
@@ -23,20 +25,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        configureExitAppButton();
+        mySong = MediaPlayer.create(MainActivity.this, R.raw.music);
+
         configureRockButton();
         configurePaperButton();
         configureScissorsButton();
     }
 
-    public  void configureExitAppButton() {
-        Button exitAppButton = findViewById(R.id.exit);
-        exitAppButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+    public void playIT(View v) {
+        mySong.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mySong.release();
     }
 
     public void configureRockButton() {
@@ -74,19 +77,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-//    public void rPSTester() {
-//
-//        String userChoice = userChooses;
-//
-//        //determining if user input is valid or not and playing game based if input is valid
-//        if(userChoice.equalsIgnoreCase("rock")
-//                || userChoice.equalsIgnoreCase("paper")
-//                || userChoice.equalsIgnoreCase("scissors")) {
-//            RockPaperScissorsGame newGame = new RockPaperScissorsGame();
-//            newGame.playRPS(userChoice);
-//        }
-//        else
-//            Toast.makeText(this, "INVALID DATA. PLEASE CHOOSE <ROCK, PAPER, OR SCISSORS>", Toast.LENGTH_SHORT).show();;
-//    }
 }
