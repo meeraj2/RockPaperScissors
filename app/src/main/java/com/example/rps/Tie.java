@@ -16,7 +16,7 @@ public class Tie extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tie);
 
-        int resID = getResources().getIdentifier("tiemusic", "raw", getPackageName());
+        int resID = getResources().getIdentifier("tieingmusic", "raw", getPackageName());
         tieMusic = MediaPlayer.create(this, resID);
         tieMusic.start();
 

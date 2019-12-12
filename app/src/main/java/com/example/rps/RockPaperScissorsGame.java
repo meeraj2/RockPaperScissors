@@ -32,7 +32,7 @@ public class RockPaperScissorsGame extends AppCompatActivity {
         toResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                startActivity(new Intent(RockPaperScissorsGame.this, MainActivity.class));
             }
         });
     }
